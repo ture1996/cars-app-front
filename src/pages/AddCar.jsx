@@ -40,11 +40,9 @@ export const AddCar = () => {
   const changeHandler = (e) => {
     if (e.target.name != "is_automatic") {
       setNewCar({ ...newCar, [e.target.name]: e.target.value });
-      console.log(newCar);
       return;
     }
     setNewCar({ ...newCar, [e.target.name]: e.target.checked ? 1 : 0 });
-    console.log(newCar);
   };
 
   const submitHandler = async (e) => {

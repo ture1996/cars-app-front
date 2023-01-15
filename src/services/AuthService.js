@@ -17,6 +17,12 @@ class AuthService extends ApiService {
       Authorization: `Bearer ${window.localStorage.getItem("token")}`,
     };
   };
+
+  logout = async () => {
+    await this.client.post("/auth/logout", {}, { headers: this.getHeaders() });
+    window.localStorage.removeItem("token");
+    window.location.replace("/login");
+  };
 }
 
 export const authService = new AuthService();

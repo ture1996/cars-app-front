@@ -3,6 +3,7 @@ import { Car } from "./pages/AppCar";
 import { Cars } from "./pages/AppCars";
 import { Login } from "./pages/AppLogin";
 import { AddCar } from "./pages/AddCar";
+import { Logout } from "./pages/Logout";
 
 export const Router = () => {
   return (
@@ -21,6 +22,9 @@ export const Router = () => {
       </Route>
       <Route path="/edit/:id">
         <AddCar />
+      </Route>
+      <Route path="/logout">
+        <Logout />
       </Route>
     </Switch>
   );
