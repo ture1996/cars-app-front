@@ -1,8 +1,14 @@
+import { BrowserRouter } from "react-router-dom";
+import { Page } from "./layouts/Page";
+import { Router } from "./Router";
+
 function App() {
   return (
-    <div>
-      Hello
-    </div>
+    <BrowserRouter>
+      <Page>
+        <Router/>
+      </Page>
+    </BrowserRouter>
   );
 }
 
