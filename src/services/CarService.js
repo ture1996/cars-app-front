@@ -25,6 +25,12 @@ class CarService extends ApiService {
     });
   };
 
+  edit = async (id, car) => {
+    return await this.client.put(`cars/${id}`, car, {
+      headers: this.authService.getHeaders(),
+    });
+  };
+
   delete = async (id) => {
     return await this.client.delete(`/cars/${id}`, {
       headers: this.authService.getHeaders(),

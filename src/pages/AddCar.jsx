@@ -19,17 +19,17 @@ export const AddCar = () => {
   useEffect(() => {
     if (id) {
       getCarHandler(id);
-      return
+      return;
     }
     setNewCar({
-        brand: "",
-        model: "",
-        year: 0,
-        max_speed: 0,
-        is_automatic: 0,
-        number_of_doors: 0,
-        engine: "",
-      })
+      brand: "",
+      model: "",
+      year: 0,
+      max_speed: 0,
+      is_automatic: 0,
+      number_of_doors: 0,
+      engine: "",
+    });
   }, [id]);
 
   const getCarHandler = async (id) => {
@@ -49,6 +49,11 @@ export const AddCar = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    if (id) {
+      await carService.edit(id, newCar);
+      window.location.replace("/cars");
+      return;
+    }
     await carService.add(newCar);
     setNewCar({});
     window.location.replace("/cars");
