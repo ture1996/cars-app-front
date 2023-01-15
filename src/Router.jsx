@@ -17,10 +17,10 @@ export const Router = () => {
         <Car />
       </Route>
       <Route path="/add">
-        <AddCar/>
+        <AddCar />
       </Route>
       <Route path="/edit/:id">
-        <AddCar/>
+        <AddCar />
       </Route>
     </Switch>
   );

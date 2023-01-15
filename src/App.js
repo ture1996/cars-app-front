@@ -6,7 +6,7 @@ function App() {
   return (
     <BrowserRouter>
       <Page>
-        <Router/>
+        <Router />
       </Page>
     </BrowserRouter>
   );

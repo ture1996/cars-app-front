@@ -17,8 +17,8 @@ export const LoginDetails = ({ credentials, handleOnChange, handleSubmit }) => {
         value={credentials.password}
         onChange={handleOnChange}
       />
-      <br/>
-      <button type='submit'>Login</button>
+      <br />
+      <button type="submit">Login</button>
     </form>
   );
 };
