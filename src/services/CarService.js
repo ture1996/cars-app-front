@@ -7,12 +7,34 @@ class CarService extends ApiService {
     this.authService = authService;
   }
 
-  getAll = async (page, per_page) => {
-    const response = await this.client.get(`/cars?per_page=${per_page}&page=${page}`, {
+  getAll = async (page, per_page, brand, model) => {
+    console.log(!brand);
+    if (!brand && !model) {
+      const response = await this.client.get(
+        `/cars?per_page=${per_page}&page=${page}`,
+        {
+          headers: this.authService.getHeaders(),
+        }
+      );
+      return response;
+    }
+    if (!model) {
+      const response2 = await this.client.get(`/cars?brand=${brand}`, {
+        headers: this.authService.getHeaders(),
+      });
+      return response2;
+    }
+    if (!brand) {
+      const response3 = await this.client.get(`/cars?model=${model}`, {
+        headers: this.authService.getHeaders(),
+      });
+      return response3;
+    }
+
+    const response4 = await this.client.get(`/cars?brand=${brand}&model=${model}`, {
       headers: this.authService.getHeaders(),
     });
-
-    return response;
+    return response4;
   };
 
   get = async (id) => {
