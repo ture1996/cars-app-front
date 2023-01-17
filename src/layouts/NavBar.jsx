@@ -11,7 +11,10 @@ export const NavBar = () => {
             <Link to="/logout">Logout</Link>
           </div>
         ) : (
-          <Link to="/login">Login</Link>
+          <div>
+            <Link to="/register">Register</Link>{" "}
+            <Link to="/login">Login</Link>
+          </div>
         )}
       </nav>
     </header>

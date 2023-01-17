@@ -18,6 +18,13 @@ class AuthService extends ApiService {
     };
   };
 
+  register = async (credentials) => {
+    const response = await this.client.post("/auth/register", credentials);
+
+    this.setAndRedirect(response);
+    return response;
+  };
+
   logout = async () => {
     await this.client.post("/auth/logout", {}, { headers: this.getHeaders() });
     window.localStorage.removeItem("token");
